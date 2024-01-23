@@ -1,7 +1,8 @@
 import styles from "./styles.module.css";
 import Image from 'next/image';
+import Link from 'next/link';
 
-const Module = ({ title, date, description, heure_debut, heure_fin, photo }) => {
+const Module = ({ title, date, description, heure_debut, heure_fin, photo, slug }) => {
     return (
       <div className={styles.module}>
         <h2>{title}</h2>
@@ -14,6 +15,7 @@ const Module = ({ title, date, description, heure_debut, heure_fin, photo }) => 
                 width={700}
                 height={400}
             />
+            <Link href={`/events/${slug}`} className={styles.designButtonDetails}>Voir les détails</Link>
         </div>
       </div>
     );

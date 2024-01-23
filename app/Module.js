@@ -11,8 +11,8 @@ const Module = ({ title, date, description, heure_debut, heure_fin, photo }) => 
             <p>{description}</p>
             <Image
                 src={photo}
-                width={200}
-                height={200}
+                width={700}
+                height={400}
             />
         </div>
       </div>

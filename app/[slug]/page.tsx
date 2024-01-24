@@ -1,19 +1,20 @@
-import { GetStaticProps, GetStaticPaths } from 'next';
+'use client'
+ 
+import { usePathname } from 'next/navigation'
+import modulesData from '../ModulesData';
 
-interface EventProps {
-    event: {
-      slug: string;
-      title: string;
-    };
-}
+export default function Page() {
+  const pathName = usePathname();
+  const cleanedSlug = pathName ? pathName.substring(1) : '';
+  const module = modulesData.find((mod) => mod.slug === cleanedSlug);
 
-export default function Event({ event }: EventProps) {
-    if (!event) {
-        return <p>Event not found</p>;
-    }
-    return (
-        <div>
-            <h1>{event.title}</h1>
-        </div>
-      );
+  if (!module) {
+    return <p>Module non trouvé</p>;
   }
+ 
+  return (
+    <div>
+      {module.title}
+    </div>
+  )
+}

@@ -1,18 +1,21 @@
-import Image from "next/image";
 import Module from "./Module";
 import styles from "./styles.module.css";
-import modulesData from "./data"
+import modulesData from "./ModulesData.js";
 
 const Home = () => {
     return (
-        <div className={styles.bodyStyle}>
-      <div className={styles.container}>
-        <h1 className={styles.h1Style}>Evenements</h1>
-        {modulesData.map((module, index) => (
-            <Module key={index} {...module} />
-            ))}
-      </div>
-    </div>
+        <body className={styles.bodyStyle}>
+            <div className={styles.header}>
+                <h1 className={styles.h1Style}>Évènements</h1>
+            </div>
+            <div className={styles.divTitleAndEvents}>
+                <div className={styles.containerCard}>
+                    {modulesData.map((module, index) => (
+                        <Module key={index} {...module}/>
+                    ))}
+                </div>
+            </div>
+        </body>
   );
 };
 

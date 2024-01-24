@@ -8,11 +8,11 @@ import Image from 'next/image';
 export default function Page() {
   const pathName = usePathname();
   const cleanedSlug = pathName ? pathName.substring(1) : '';
-  const module = modulesData.find((mod) => mod.slug === cleanedSlug);
+  const selectedModule = modulesData.find((mod) => mod.slug === cleanedSlug);
 
-  if (!module) {
-    return <p>Module non trouvé</p>;
-  }
+if (!selectedModule) {
+ return <p>Module non trouvé</p>;
+}
  
   return (
     <div>
@@ -24,22 +24,22 @@ export default function Page() {
             <div className={styles.detailsEvent}>
                 <div className={styles.titleContainerEvent}>
                     <Image
-                        src={module.imgBeginning}
+                        src={selectedModule.imgBeginning}
                         width={700}
                         height={400}
                         className={styles.imgBeginning}
                         alt="Image d'illustration"
                     />
                     <div className={styles.titleOverlayEvent}>
-                        <h2 className={styles.titleEvent}>{module.title}</h2>
+                        <h2 className={styles.titleEvent}>{selectedModule.title}</h2>
                     </div>
                 </div>
                 <div className={styles.detailContainerEvent}>
-                    <p className={styles.descriptionEvent}>{module.detail}</p>
+                    <p className={styles.descriptionEvent}>{selectedModule.detail}</p>
                 </div>
                 <div className={styles.imgContainerEvent}>
                     <Image
-                        src={module.imgEnd}
+                        src={selectedModule.imgEnd}
                         width={700}
                         height={400}
                         className={styles.imgEnd}

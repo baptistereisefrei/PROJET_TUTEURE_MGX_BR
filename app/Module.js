@@ -15,7 +15,7 @@ const Module = ({ title, date, description, heure_debut, heure_fin, photo, slug 
                 width={700}
                 height={400}
             />
-            <Link href={`/events/${slug}`} className={styles.designButtonDetails}>Voir les détails</Link>
+            <Link href={`${slug}`} className={styles.designButtonDetails}>Voir les détails</Link>
         </div>
       </div>
     );

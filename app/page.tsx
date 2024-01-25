@@ -4,7 +4,7 @@ import modulesData from "./ModulesData.js";
 
 const Home = () => {
     return (
-        <body className={styles.bodyStyle}>
+        <div className={styles.bodyStyle}>
             <div className={styles.header}>
                 <h1 className={styles.h1Style}>Évènements</h1>
             </div>
@@ -15,7 +15,7 @@ const Home = () => {
                     ))}
                 </div>
             </div>
-        </body>
+        </div>
   );
 };
 

@@ -1,4 +1,5 @@
 'use client'
+import React, { useState } from 'react';
 import styles from "../styles.module.css";
 import { usePathname } from 'next/navigation'
 import modulesData from '../ModulesData';
@@ -13,10 +14,9 @@ export default function Page() {
 if (!selectedModule) {
  return <p>Module non trouvé</p>;
 }
- 
+
   return (
-    <div>
-        <body className={styles.bodyStyle}>
+        <div className={styles.bodyStyle}>
             <div className={styles.header + ' ' + styles.headerSlug}>
                 <Link href={'/'} className={styles.h1Style + ' ' + styles.backHomeButton}>Retour à l'accueil</Link>
                 <h1 className={styles.h1Style}>Évènements</h1>
@@ -47,7 +47,6 @@ if (!selectedModule) {
                     />
                 </div>
             </div>
-        </body>
-    </div>
+        </div>
   )
 }

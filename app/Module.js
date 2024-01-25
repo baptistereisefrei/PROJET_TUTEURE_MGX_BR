@@ -16,6 +16,7 @@ const Module = ({ title, date, detail, description, heure_debut, heure_fin, phot
                     width={700}
                     height={400}
                     className={styles.img}
+                    alt=""
                 />
             </div>
             <Link href={slug} className={styles.designButtonDetails}>Voir les détails</Link>

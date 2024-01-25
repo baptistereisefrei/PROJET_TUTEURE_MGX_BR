@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 import modulesData from '../ModulesData';
 import Link from "next/link";
 import Image from 'next/image';
-import { insertUserData } from '../api/insert'
+import { insertUserData } from '../insert'
 import UserForm from '../UserForm';
 
 export default function Page() {

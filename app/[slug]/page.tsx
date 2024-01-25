@@ -6,6 +6,7 @@ import modulesData from '../ModulesData';
 import Link from "next/link";
 import Image from 'next/image';
 import { insertUserData } from '../api/insert'
+import UserForm from '../UserForm';
 
 export default function Page() {
   const pathName = usePathname();
@@ -15,12 +16,11 @@ export default function Page() {
 if (!selectedModule) {
  return <p>Module non trouvé</p>;
 }
-const prenom = 'John';
-const nom = 'Doe';
-const mail = 'john.doe@example.com';
-const telephone = '1234567890';
 
-insertUserData(prenom, nom, mail, telephone);
+const handleFormSubmit = (formData: { prenom: string; nom: string; mail: string; telephone: string }) => {
+  insertUserData(formData.prenom, formData.nom, formData.mail, formData.telephone);
+  console.log('Données du formulaire soumises:', formData);
+};
 
   return (
         <div className={styles.bodyStyle}>
@@ -54,6 +54,7 @@ insertUserData(prenom, nom, mail, telephone);
                     />
                 </div>
             </div>
+            <UserForm onSubmit={handleFormSubmit} />
         </div>
   )
 }

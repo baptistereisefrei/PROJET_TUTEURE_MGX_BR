@@ -12,17 +12,18 @@ export default function Page() {
   const pathName = usePathname();
   const cleanedSlug = pathName ? pathName.substring(1) : '';
   const selectedModule = modulesData.find((mod) => mod.slug === cleanedSlug);
+  
+  const [formData, setFormData] = useState({
+    prenom: '',
+    nom: '',
+    mail: '',
+    telephone: '',
+  });
 
 if (!selectedModule) {
  return <p>Module non trouvé</p>;
 }
 
-const [formData, setFormData] = useState({
-  prenom: '',
-  nom: '',
-  mail: '',
-  telephone: '',
-});
 
 const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   setFormData({ ...formData, [e.target.name]: e.target.value });

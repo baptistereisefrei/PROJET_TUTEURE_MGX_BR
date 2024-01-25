@@ -17,10 +17,11 @@ if (!selectedModule) {
  return <p>Module non trouvé</p>;
 }
 
-const handleFormSubmit = (formData: { prenom: string; nom: string; mail: string; telephone: string }) => {
-  insertUserData(formData.prenom, formData.nom, formData.mail, formData.telephone);
-  console.log('Données du formulaire soumises:', formData);
-};
+insertUserData("toto", "tutu", "oo", "i");
+// const handleFormSubmit = (formData: { prenom: string; nom: string; mail: string; telephone: string }) => {
+//   insertUserData(formData.prenom, formData.nom, formData.mail, formData.telephone);
+//   console.log('Données du formulaire soumises:', formData);
+// };
 
   return (
         <div className={styles.bodyStyle}>
@@ -54,7 +55,6 @@ const handleFormSubmit = (formData: { prenom: string; nom: string; mail: string;
                     />
                 </div>
             </div>
-            <UserForm onSubmit={handleFormSubmit} />
         </div>
   )
 }

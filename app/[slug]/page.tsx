@@ -17,11 +17,29 @@ if (!selectedModule) {
  return <p>Module non trouvé</p>;
 }
 
-insertUserData("toto", "tutu", "oo", "i");
-// const handleFormSubmit = (formData: { prenom: string; nom: string; mail: string; telephone: string }) => {
-//   insertUserData(formData.prenom, formData.nom, formData.mail, formData.telephone);
-//   console.log('Données du formulaire soumises:', formData);
-// };
+const [formData, setFormData] = useState({
+  prenom: '',
+  nom: '',
+  mail: '',
+  telephone: '',
+});
+
+const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  setFormData({ ...formData, [e.target.name]: e.target.value });
+};
+
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault(); // Empêche la soumission normale du formulaire
+
+  try {
+    // Utilisez la fonction insertUserData avec les données du formulaire
+    await insertUserData(formData.prenom, formData.nom, formData.mail, formData.telephone);
+    console.log('Formulaire soumis avec succès!');
+    // Vous pouvez également rediriger l'utilisateur ou effectuer d'autres actions ici
+  } catch (error) {
+    console.error('Une erreur s\'est produite lors de la soumission du formulaire:', error);
+  }
+};
 
   return (
         <div className={styles.bodyStyle}>
@@ -55,6 +73,21 @@ insertUserData("toto", "tutu", "oo", "i");
                     />
                 </div>
             </div>
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="prenom">Prénom:</label>
+              <input type="text" id="prenom" name="prenom" required onChange={handleChange}></input>
+
+              <label htmlFor="nom">Nom:</label>
+              <input type="text" id="nom" name="nom" required onChange={handleChange}></input>
+
+              <label htmlFor="mail">E-mail:</label>
+              <input type="email" id="mail" name="mail" required onChange={handleChange}></input>
+
+              <label htmlFor="telephone">Numéro de téléphone:</label>
+              <input type="tel" id="telephone" name="telephone" required onChange={handleChange}></input>
+
+              <input type="submit" value="Soumettre"></input>
+            </form>
         </div>
   )
 }

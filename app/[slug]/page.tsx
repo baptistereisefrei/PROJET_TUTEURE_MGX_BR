@@ -16,15 +16,11 @@ export default function Page() {
 if (!selectedModule) {
  return <p>Module non trouvé</p>;
 }
-const prenom = 'Jon';
-const nom = 'oe';
-const mail = 'john.doe@example.com';
-const telephone = '17890';
-insertUserData(prenom, nom, mail, telephone);
-// const handleFormSubmit = (formData: { prenom: string; nom: string; mail: string; telephone: string }) => {
-//   insertUserData(formData.prenom, formData.nom, formData.mail, formData.telephone);
-//   console.log('Données du formulaire soumises:', formData);
-// };
+
+const handleFormSubmit = (formData: { prenom: string; nom: string; mail: string; telephone: string }) => {
+  insertUserData(formData.prenom, formData.nom, formData.mail, formData.telephone);
+  console.log('Données du formulaire soumises:', formData);
+};
 
   return (
         <div className={styles.bodyStyle}>
@@ -58,6 +54,7 @@ insertUserData(prenom, nom, mail, telephone);
                     />
                 </div>
             </div>
+            <UserForm onSubmit={handleFormSubmit} />
         </div>
   )
 }

@@ -6,7 +6,6 @@ import modulesData from '../ModulesData';
 import Link from "next/link";
 import Image from 'next/image';
 import { insertUserData } from '../insert'
-import { getAllUserData } from '../select'
 
 
 export default function Page() {

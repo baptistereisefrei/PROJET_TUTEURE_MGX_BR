@@ -19,7 +19,6 @@ if (!selectedModule) {
 }
 
 insertUserData("TEST_NAME", "TEST_SURNAME", "TEST@GMAIL.COM", "0123456789");
-const resultSelect = getAllUserData();
 
   return (
         <div className={styles.bodyStyle}>
@@ -53,7 +52,6 @@ const resultSelect = getAllUserData();
                     />
                 </div>
             </div>
-            <p> {resultSelect} </p>
         </div>
   )
 }

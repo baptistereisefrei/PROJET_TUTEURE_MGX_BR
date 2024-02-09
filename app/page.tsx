@@ -8,7 +8,7 @@ import {
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-  } from "./components/ui/accordion"
+  } from "./components/module/accordion"
   
 
 const Home = () => {

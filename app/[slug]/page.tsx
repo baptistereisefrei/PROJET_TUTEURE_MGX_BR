@@ -1,19 +1,24 @@
 'use client'
+import React, { useState } from 'react';
 import styles from "../styles.module.css";
 import { usePathname } from 'next/navigation'
 import modulesData from '../ModulesData';
 import Link from "next/link";
 import Image from 'next/image';
+import { insertUserData } from '../insert'
+
 
 export default function Page() {
   const pathName = usePathname();
   const cleanedSlug = pathName ? pathName.substring(1) : '';
   const selectedModule = modulesData.find((mod) => mod.slug === cleanedSlug);
 
-    if (!selectedModule) {
+  if (!selectedModule) {
     return <p>Module non trouvé</p>;
-    }
+  }
  
+  insertUserData("TEST_NAME", "TEST_SURNAME", "TEST@GMAIL.COM", "0123456789");
+
   return (
     <body className={styles.bodyStyle}>
         <section id="sectionRedirection">
